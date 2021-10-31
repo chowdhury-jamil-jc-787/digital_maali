@@ -20,3 +20,6 @@ Route::get('/messages','App\Http\Controllers\Messages@list')->name('messages.api
 
 
 Route::get('/send','App\Http\Controllers\Messages@insert')->name('send.api');
+
+
+Route::post('/signature','App\Http\Controllers\SignatureController@signature')->name('signature.api');

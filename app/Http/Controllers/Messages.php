@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Http;
+use App\Models\Otp;
 
 class Messages extends Controller
 {
@@ -50,10 +51,9 @@ class Messages extends Controller
     
     public function insert(Request $request){
        $a = rand(1,10000); 
-      $name = $request->$a;
-        $name1 = $request->$a;
-      DB::insert('insert into otp (phone,code) values(?,?)',[$name,$name1]);
-      echo "Record inserted successfully.<br/>";
-      echo '<a href = "/insert">Click Here</a> to go back.';
-        }
+        $otp = new Otp;
+        $otp->phone = $a;
+        $otp->code = $a;
+        $otp->save();
+}
 }
