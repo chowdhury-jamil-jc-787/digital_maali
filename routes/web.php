@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('home');
 });
 */
-
+Route::get('/hm', function () {
+    return view('hm');
+});
 
 Route::get('/messages', [Messages::class,'list']);
+
