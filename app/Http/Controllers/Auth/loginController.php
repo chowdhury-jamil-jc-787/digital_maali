@@ -16,15 +16,15 @@ class loginController extends Controller
     public function login(Request $request){
         try{
             $request->validate([   
-                'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+                'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:11',
                 'password'=>'required',
             ]);
             $credentials = request(['phone','password']);
             
             if(!Auth::attempt($credentials)){
                 return response()->json([
-                    'status_code' =>422,
-                    'message' => 'Unathorized',
+                    'code' =>422,
+                    'message' => 'phone number or password is wronged',
                 ]);
             }
             

@@ -21,7 +21,11 @@ Route::get('/messages','App\Http\Controllers\Messages@list')->name('messages.api
 
 Route::get('/send','App\Http\Controllers\Messages@insert')->name('send.api');
 
-Route::post('/send','App\Http\Controllers\Messages@insert')->name('send.api');
+Route::post('/request_otp','App\Http\Controllers\Messages@insert')->name('request_otp.api');
 
 
-Route::post('/request_otp','App\Http\Controllers\SignatureController@signature')->name('request_otp.api');
+//Route::post('/request_otp','App\Http\Controllers\SignatureController@signature')->name('request_otp.api');
+
+
+
+Route::post('/otp_check','App\Http\Controllers\OtpCon@check')->name('otp_check.api');

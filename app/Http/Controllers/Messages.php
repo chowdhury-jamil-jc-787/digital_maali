@@ -62,7 +62,7 @@ class Messages extends Controller
             return $digits;
         }
 
-            $a= randomDigits(4);
+            $optCode= randomDigits(4);
 
 
 
@@ -71,7 +71,7 @@ class Messages extends Controller
 
         $otp = new Otp;
         $otp->phone = $request->phone;
-        $otp->code = $a;
+        $otp->code = $optCode;
         $otp->save();
         
         return response()->json([
@@ -81,7 +81,7 @@ class Messages extends Controller
                     
                         'user_data'=>[
 
-                            'Otp code is' =>'skyflora OTP is :'.' '. $a.' '.$request->signature,
+                            'otp_message' =>'skyflora OTP is :'.' '. $optCode.' '.$request->app_signature_code,
     
                             'phone' =>$request->phone,
                             
