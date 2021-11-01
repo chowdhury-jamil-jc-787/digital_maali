@@ -50,10 +50,23 @@ class Messages extends Controller
     
     
     public function insert(Request $request){
+        
        $a = rand(1,10000); 
         $otp = new Otp;
-        $otp->phone = $a;
+        $otp->phone = $request->phone;
         $otp->code = $a;
         $otp->save();
+        
+        return response()->json([
+                    'code'=>200,
+                    'message'=>'skyflora OTP is:',
+                    'otp_code'=>$a,
+                    
+                        'user_data'=>[
+    
+                            'Signature' =>$request->signature,
+                            
+                        ]
+                    ]);
 }
 }

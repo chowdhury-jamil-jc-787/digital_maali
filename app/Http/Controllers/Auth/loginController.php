@@ -15,7 +15,7 @@ class loginController extends Controller
 {
     public function login(Request $request){
         try{
-            $request->validate([
+            $request->validate([   
                 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
                 'password'=>'required',
             ]);
