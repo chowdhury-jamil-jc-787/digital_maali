@@ -13,7 +13,7 @@ class SignatureController extends Controller
             
              $request->validate([
                 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-                'app_signature_code'=>'required',
+                'signature'=>'required',
             ]);
             $credentials = request(['phone','signature']);
             

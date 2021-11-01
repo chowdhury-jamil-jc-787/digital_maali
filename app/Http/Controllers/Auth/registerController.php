@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 
 use App\Models\User;
-use App\Models\Otp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,20 +28,6 @@ class registerController extends Controller
                             ],422);
             }
                 
-
-
-
-            $phone = $request->phone;
-            $code = $request->code;
-            $memberExists = Otp::where('phone', '=', $phone)->first();
-            //$otp = Otp::where('code', '=', $code)->first();
-    
-            $y = Otp::where('phone', $phone)->value('code');
-    
-    
-    
-           
-                if ($y === $code) {
             $request['password']=Hash::make($request['password']);
             $request['remember_token']=Str::random(10);
             $user = User::create($request->toArray());
@@ -52,28 +37,6 @@ class registerController extends Controller
                 'message'=>'Requested for OTP',
             ]);
             
-                    
-                }
-                    else{
-                        return response()->json([
-                            'code'=>400/500,
-                            'message'=>'Otp is wrong',
-                        ]);
-                        
-                    }
-
-
-
-
-
-
-
-
-
-
-
-
-           
             
             
             }
