@@ -76,15 +76,15 @@ class Messages extends Controller
         
         return response()->json([
                     'code'=>200,
-                    'message'=>'skyflora OTP is:',
+                    'message'=>'Requested for OTP',
                     
                     
                         'user_data'=>[
 
-                            'Otp code is' => $a,
+                            'Otp code is' =>'skyflora OTP is :'.' '. $a.' '.$request->signature,
     
                             'phone' =>$request->phone,
-                            'signature' =>$request->signature,
+                            
                             
                         ]
                     ]);
