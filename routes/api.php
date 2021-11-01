@@ -10,8 +10,8 @@ Route::middleware('auth:sanctum')->group(function(){
 });
 
 
-Route::post('/register','App\Http\Controllers\auth\registerController@register')->name('register.api');
-Route::post('/login','App\Http\Controllers\auth\loginController@login')->name('login.api');
+Route::post('/register','App\Http\Controllers\Auth\registerController@register')->name('register.api');
+Route::post('/login','App\Http\Controllers\Auth\loginController@login')->name('login.api');
 
 
 
